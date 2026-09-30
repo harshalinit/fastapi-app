@@ -1,0 +1,28 @@
+my_project/
+├── app/
+│   ├── api/                # HTTP layer: Routers, endpoints, and HTTP responses
+│   │   ├── dependencies/   # FastAPI dependencies (auth tokens, DB sessions)
+│   │   └── v1/             # API versioning (routers)
+│   ├── core/               # Infrastructure components: Config, security, logging
+│   │   ├── config.py       # Pydantic BaseSettings for environment variables
+│   │   ├── security.py     # Hashing, JWT token generation
+│   │   └── exceptions.py   # Global exception handlers
+│   ├── domain/             # Framework-agnostic business models and rules
+│   ├── models/             # ORM models (e.g., SQLAlchemy)
+│   ├── schemas/            # Pydantic models (DTOs for request/response validation)
+│   ├── services/           # Business logic layer (orchestrates DB and infra calls)
+│   ├── repositories/       # Data Access Object (DAO) layer (CRUD operations)
+│   ├── infra/              # External integrations (Redis, Kafka, AWS, Stripe)
+│   ├── db/                 # Database connection pooling and session management
+│   ├── worker/             # Background tasks (Celery, ARQ, or FastStream)
+│   └── main.py             # App entry point: middleware, lifespan, router registration
+├── tests/                  # Pytest suite
+│   ├── unit/               # Tests for services, domain, and utilities
+│   ├── integration/        # Tests for repositories and external clients
+│   └── e2e/                # Tests for API endpoints using TestClient
+├── alembic/                # Database migration scripts
+├── scripts/                # Utility scripts (seed DB, admin tools)
+├── Dockerfile              # Multi-stage container build
+├── docker-compose.yml      # Local development environment setup
+├── pyproject.toml          # Dependency management (Poetry or uv)
+└── .env                    # Local environment variables (never committed)
